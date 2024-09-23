@@ -4,7 +4,6 @@ import Navbar from "./component/navbar/Navbar";
 import Home from "./component/home/Home";
 import Spended from "./component/spended/Spended";
 import AddOrder from "./component/addOrder/AddOrder";
-import Test from "./component/test/Test";
 import EditOrder from "./component/addOrder/EditOrder";
 import LoginPage from "./component/authentication/LoginPage";
 import Header from "./component/header/Header";
@@ -105,7 +104,6 @@ function App() {
           <Route path="/" element={userActive ? <Home data={data} /> : <Navigate to="/login" />} />
           <Route path="/spended" element={userActive ? <Spended data={data} /> : <Navigate to="/login" />} />
           <Route path="/add-order" element={userActive ? <AddOrder data={data} setData={setData} /> : <Navigate to="/login" />} />
-          <Route path="/test" element={<Test data={data} />} />
           <Route path="/edit-order" element={userActive ? <EditOrder setData={setData} /> : <Navigate to="/login" />} />
           <Route path="/change-password" element={userActive ? <ChangePassword setUserActive={setUserActive} /> : <Navigate to="/login" />} />
           <Route
