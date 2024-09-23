@@ -1,0 +1,55 @@
+.container-login {
+  height: 100vh;
+  background-color: var(--color-white);
+  align-content: center;
+}
+
+.img-login {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: 0.3s;
+}
+
+.img-login img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.box-login {
+  background-color: var(--color-white);
+  border-radius: 2rem 2rem 0 0;
+  padding: 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card-login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+@media only screen and (min-width: 960px) {
+  .card-login {
+    flex-direction: row;
+    width: 800px;
+    height: 500px;
+    border-radius: 2rem;
+    overflow: hidden;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  }
+
+  .box-login {
+    border-radius: unset;
+    width: 450px;
+    box-shadow: unset;
+  }
+
+  .img-login {
+    overflow: hidden;
+  }
+}
