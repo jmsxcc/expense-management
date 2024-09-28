@@ -57,6 +57,18 @@ const Order = (props) => {
     });
   };
 
+  const totalPriceByDate = (date) => {
+    const income = sortedData
+      .filter((e) => moment(e.date, "YYYY-MM-DD").format("YYYY-MM-DD") === date && e.category.split(" ")[1] === "Income")
+      .reduce((prev, current) => prev + current.price, 0);
+
+    const expense = sortedData
+      .filter((e) => moment(e.date, "YYYY-MM-DD").format("YYYY-MM-DD") === date && e.category.split(" ")[1] !== "Income")
+      .reduce((prev, current) => prev + current.price, 0);
+
+    return income - expense;
+  };
+
   return (
     <>
       {filterDate &&
@@ -64,14 +76,7 @@ const Order = (props) => {
           <div style={{ marginTop: index > 0 ? "2rem" : "1rem" }} key={index}>
             <div className="d-flex justify-content-between">
               <span className="order-txt-date">{moment(date).format("DD/MM/YYYY")}</span>
-              <span className="order-txt-price">
-                Total: ฿
-                {numberWithCommas(
-                  sortedData
-                    .filter((e) => moment(e.date, "YYYY-MM-DD").format("YYYY-MM-DD") === date)
-                    .reduce((prev, current) => prev + current.price, 0)
-                )}
-              </span>
+              <span className="order-txt-price">Total: ฿{numberWithCommas(totalPriceByDate(date))}</span>
             </div>
 
             {sortedData &&
