@@ -6,7 +6,7 @@ import "./Order.css";
 
 const Order = (props) => {
   const [showScroll, setShowScroll] = useState(false);
-  const [more, setMore] = useState(7); // Initial number of items shown
+  const [more, setMore] = useState(7);
   const location = useLocation();
   const isAddOrder = location.pathname === "/add-order";
   const user = JSON.parse(localStorage.getItem("user"));

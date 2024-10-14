@@ -45,11 +45,12 @@ const Spended = ({ data }) => {
 
   useEffect(() => {
     const startAndEndOfWeek = [moment(date).startOf("week"), moment(date).endOf("week")];
-    const startAndEndOfMonth = [moment(date).startOf("month"), moment(date).endOf("month")];
+    const startAndEndOfMonth = [moment(date).startOf("year"), moment(date).endOf("year")];
 
     const filteredWeeklyData = filterDataByPeriod(startAndEndOfWeek[0], startAndEndOfWeek[1]);
     const filteredMonthlyData = filterDataByPeriod(startAndEndOfMonth[0], startAndEndOfMonth[1]);
 
+    console.log(filteredMonthlyData);
     const newTotals = {
       income: data.filter((item) => item.category.split(" ")[1] === "Income").reduce((sum, item) => sum + item.price, 0),
       expense: data.filter((item) => item.category.split(" ")[1] !== "Income").reduce((sum, item) => sum + item.price, 0),
